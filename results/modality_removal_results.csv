@@ -1,7 +1,0 @@
-dataset,setting,sarcasm_f1,sarcasm_accuracy,sentiment_f1,sentiment_accuracy
-MUStARD,w/o T,83.95,84.00,46.74,45.00
-MUStARD,w/o V,75.86,76.00,50.62,48.00
-MUStARD,All,85.98,86.00,48.39,47.00
-Memotion,w/o T,71.63,77.10,48.88,55.25
-Memotion,w/o V,72.58,77.86,50.40,59.26
-Memotion,All,71.56,76.05,49.30,55.15

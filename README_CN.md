@@ -53,4 +53,4 @@ bash scripts/train_ablation_suite.sh memotion /数据根目录
 | MUStARD | 86.04 | 86.00 | 85.98 | 47.00 | 48.39 |
 | Memotion | 69.08 | 76.05 | 71.56 | 55.15 | 49.30 |
 
-完整配置与结果记录见 `configs/`、`results/` 和 [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md)。仓库维护者：Jie Tang（`teganjay0715@gmail.com`）。代码采用 Apache License 2.0。
+完整配置与实验设置见 `configs/` 和 [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md)。仓库维护者：Jie Tang（`teganjay0715@gmail.com`）。代码采用 Apache License 2.0。

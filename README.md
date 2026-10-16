@@ -50,10 +50,10 @@ Evaluation requires a compatible checkpoint produced by local training.
 
 ```bash
 bash scripts/evaluate.sh mustard /path/to/gcim_data \
-  /path/to/local/mustard_best_model.pth results/mustard_evaluation.json
+  /path/to/local/mustard_best_model.pth mustard_evaluation.json
 
 bash scripts/evaluate.sh memotion /path/to/gcim_data \
-  /path/to/local/memotion_best_model.pth results/memotion_evaluation.json
+  /path/to/local/memotion_best_model.pth memotion_evaluation.json
 ```
 
 ## Main results
@@ -65,7 +65,7 @@ All values are support-weighted percentages on the fixed test splits.
 | MUStARD | 86.04 | 86.00 | 85.98 | 47.00 | 48.39 |
 | Memotion | 69.08 | 76.05 | 71.56 | 55.15 | 49.30 |
 
-Full configurations and result records are available in `configs/`, `results/`, and [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
+Full configurations and experimental settings are available in `configs/` and [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
 ## Citation and license
 
