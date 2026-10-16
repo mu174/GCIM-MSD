@@ -50,10 +50,10 @@ Evaluation requires a compatible checkpoint produced by local training.
 
 ```bash
 bash scripts/evaluate.sh mustard /path/to/gcim_data \
-  checkpoints/mustard_best_model.pth results/mustard_evaluation.json
+  /path/to/local/mustard_best_model.pth results/mustard_evaluation.json
 
 bash scripts/evaluate.sh memotion /path/to/gcim_data \
-  checkpoints/memotion_best_model.pth results/memotion_evaluation.json
+  /path/to/local/memotion_best_model.pth results/memotion_evaluation.json
 ```
 
 ## Main results
