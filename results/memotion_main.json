@@ -3,7 +3,6 @@
   "implementation": "fixed_mcm_crmd_accumulation_joint_selection",
   "seed": 5,
   "epochs": 30,
-  "checkpoint": "checkpoints/memotion_best_model.pth",
   "selection": {
     "split": "validation",
     "metric": "0.7 * sarcasm_weighted_f1 + 0.3 * sentiment_weighted_f1",

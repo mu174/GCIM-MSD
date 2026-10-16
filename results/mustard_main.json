@@ -3,7 +3,6 @@
   "implementation": "fixed_mcm_accumulation_joint_selection",
   "seed": 8,
   "epochs": 30,
-  "checkpoint": "checkpoints/mustard_best_model.pth",
   "selection": {
     "split": "validation",
     "metric": "0.7 * sarcasm_weighted_f1 + 0.3 * sentiment_weighted_f1",

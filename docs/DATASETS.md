@@ -41,19 +41,6 @@ DATA_ROOT/
 MUStARD split CSVs contain multiple context/target utterance rows per sample;
 the counts above are target sample counts loaded by the dataset class.
 
-## Split-file checksums
-
-These hashes identify the exact local split files used by the archived run.
-
-| File | SHA-256 |
-|---|---|
-| MUStARD train | `c01edad8c270f1c56a5aa6126dfe5f98ada2ff41bd8b083c85a44f34312e932a` |
-| MUStARD validation | `017f3d97273600a42cf0a095d36b06c41b311885aa33e177f10e3b8e238b4c97` |
-| MUStARD test | `b364d37a55f4e53b4c4859c5bf3897e63c275e87fd5f034a2bd081fa3f30db18` |
-| Memotion train | `3e5714a8af835351dfa0d73be303ba4df0b894d09f5971f2f5b49583cb612d4d` |
-| Memotion validation | `63925a1eb06a3fb9cb9e5262e9768da8dbafeeaa3c1c50e0747239e2cc1c4baa` |
-| Memotion test | `caa2fd07ad5cf1d7e6df2889e911825eb014265fc71f3e1b77424934ac91cc5b` |
-
 ## Label mapping
 
 ### MUStARD
