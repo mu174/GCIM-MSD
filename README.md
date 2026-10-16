@@ -56,7 +56,7 @@ bash scripts/evaluate.sh memotion /path/to/gcim_data \
   /path/to/local/memotion_best_model.pth memotion_evaluation.json
 ```
 
-## Main results
+## Table III. Main Results
 
 All values are support-weighted percentages on the fixed test splits.
 

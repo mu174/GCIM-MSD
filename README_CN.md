@@ -44,7 +44,7 @@ bash scripts/train_ablation_suite.sh memotion /数据根目录
 
 评估需要使用本地训练得到的兼容 checkpoint。
 
-## 主结果
+## 表三：主要结果
 
 以下为固定测试集上的 support-weighted 指标。
 
