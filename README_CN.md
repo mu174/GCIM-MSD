@@ -16,17 +16,17 @@ pip install -r requirements.txt
 
 ## 数据
 
-按照 [docs/DATASETS.md](docs/DATASETS.md) 准备处理后的数据划分和模态特征，然后运行检查：
+固定数据划分 CSV 已放在 `data/` 中。在 `configs/features.yaml` 中配置原始媒体路径和特征模型，并按照 [docs/DATASETS.md](docs/DATASETS.md) 生成模态缓存，然后运行检查：
 
 ```bash
-python scripts/preflight.py /处理后数据目录
+python scripts/preflight.py data
 ```
 
 ## 训练
 
 ```bash
-bash scripts/train_mustard.sh /处理后数据目录
-bash scripts/train_memotion.sh /处理后数据目录
+bash scripts/train_mustard.sh data
+bash scripts/train_memotion.sh data
 ```
 
 启动器读取 `configs/<dataset>.yaml`，默认使用 CPU，并为每次运行创建新的输出目录。checkpoint 按验证集联合指标选择：

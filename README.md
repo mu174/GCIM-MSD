@@ -18,17 +18,17 @@ Package versions are listed in `requirements-recorded.txt`.
 
 ## Data
 
-Prepare the processed split files and modality features according to [docs/DATASETS.md](docs/DATASETS.md), then check them with:
+The fixed split CSVs are included under `data/`. Configure the raw media and feature models in `configs/features.yaml`, then create the modality caches as described in [docs/DATASETS.md](docs/DATASETS.md). Check the prepared layout with:
 
 ```bash
-python scripts/preflight.py /path/to/prepared_data
+python scripts/preflight.py data
 ```
 
 ## Training
 
 ```bash
-bash scripts/train_mustard.sh /path/to/prepared_data
-bash scripts/train_memotion.sh /path/to/prepared_data
+bash scripts/train_mustard.sh data
+bash scripts/train_memotion.sh data
 ```
 
 Launchers read `configs/<dataset>.yaml`, default to CPU, and save each run in a new output directory. Checkpoints are selected on the validation split using:

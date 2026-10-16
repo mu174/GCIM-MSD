@@ -1,6 +1,6 @@
 # Dataset and feature layout
 
-Arrange the processed split files and cached graph features as follows:
+The fixed split files are included in this repository. Generated graph features use the following layout:
 
 ```text
 DATA_ROOT/
@@ -61,3 +61,36 @@ to integer columns named `sarcasm` and `overall_sentiment`.
 
 Both datasets load NumPy node-feature arrays and dependency-graph JSON files.
 Place the prepared feature files in the layout above before training.
+
+## Feature extraction
+
+Set the raw media locations and model identifiers in `configs/features.yaml`.
+The configured raw paths use these file names:
+
+```text
+raw/
+├── memotion/images/<image_name>
+└── mustard/
+    ├── frames/<KEY>/<five-digit-frame-index>.jpg
+    └── audio_features/<KEY>.npy
+```
+
+Install the dependency parser once:
+
+```bash
+python -m spacy download en_core_web_sm
+```
+
+Generate the caches with:
+
+```bash
+python scripts/extract_features.py --dataset mustard --modality all --device cuda
+python scripts/extract_features.py --dataset memotion --modality all --device cuda
+```
+
+Text features are BERT token and `[CLS]` representations. Visual features are
+ViT `[CLS]` representations of the complete image and Faster R-CNN object
+regions. MUStARD visual frames are sampled uniformly to match the number of
+utterances. Its acoustic input is a per-sample NumPy array; the script divides
+the temporal axis into four equal segments, mean-pools each segment, and
+linearly interpolates each vector to 768 dimensions.

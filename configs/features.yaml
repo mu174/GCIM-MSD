@@ -1,0 +1,23 @@
+data_root: data
+
+raw_data:
+  memotion_images: raw/memotion/images
+  mustard_frames: raw/mustard/frames
+  mustard_audio_features: raw/mustard/audio_features
+
+models:
+  text: bert-base-uncased
+  vision: google/vit-base-patch16-224
+  dependency_parser: en_core_web_sm
+  object_detector: fasterrcnn_resnet50_fpn
+
+text:
+  mustard_max_length: 128
+  memotion_max_length: 512
+
+vision:
+  image_size: 224
+
+audio:
+  segments: 4
+  output_dim: 768

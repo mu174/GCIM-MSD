@@ -17,6 +17,10 @@ data/**/*.npy
 data/**/*.npz
 data/**/*.pkl
 data/**/*.pickle
+!data/mustard/splits/*.csv
+!data/memotion/splits/*.csv
+data/**/features/
+raw/
 *.log
 
 runs_ablation/
