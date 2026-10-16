@@ -67,6 +67,6 @@ All values are support-weighted percentages on the fixed test splits.
 
 Full configurations and experimental settings are available in `configs/` and [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
-## Citation and license
+## Contact and license
 
-Author information is provided in `CITATION.cff`. Repository maintainer: Jie Tang (`teganjay0715@gmail.com`). This code is released under the Apache License 2.0. Dataset and third-party licenses apply separately.
+Repository maintenance: `teganjay0715@gmail.com`. This code is released under the Apache License 2.0. Dataset and third-party licenses apply separately.
