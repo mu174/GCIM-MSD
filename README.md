@@ -17,6 +17,7 @@
   <a href="#key-features">Key Features</a> ·
   <a href="#architecture">Architecture</a> ·
   <a href="#setup">Setup</a> ·
+  <a href="#repository-structure">Repository</a> ·
   <a href="#data">Data</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="#main-results">Results</a>
@@ -64,6 +65,24 @@ pip install -r requirements.txt
 
 Package versions are listed in `requirements-recorded.txt`.
 
+<a id="repository-structure"></a>
+
+## 🗂️ Repository Structure
+
+```text
+GCIM-MSD_release/
+├── assets/                 # Architecture figure
+├── configs/                # Training and feature configurations
+├── data/                   # Fixed MUStARD and Memotion split CSVs
+├── docs/                   # Dataset, model, and reproducibility notes
+├── scripts/                # Training, evaluation, and feature utilities
+└── src/                    # Dataset loaders, models, and training code
+```
+
+The training launchers read the experiment settings from `configs/` and use
+the corresponding implementations in `src/`. Each run is written to a new
+archive directory together with its configuration, logs, and source snapshot.
+
 <a id="data"></a>
 
 ## 📁 Data
@@ -74,6 +93,26 @@ The fixed split CSVs are included under `data/`. Configure the raw media and fea
 python scripts/preflight.py data
 ```
 
+### Dataset Summary
+
+| Dataset | Modalities | Train | Validation | Test |
+|---|---|---:|---:|---:|
+| MUStARD | Text, visual, acoustic | 500 | 90 | 100 |
+| Memotion | Text, visual | 4,896 | 1,048 | 1,048 |
+
+MUStARD counts refer to target utterances; its split CSVs also contain the
+associated dialogue context. Memotion counts refer to individual memes.
+
+### Feature Preparation
+
+- **Text:** BERT token and `[CLS]` representations, accompanied by dependency information produced with spaCy.
+- **Visual:** ViT `[CLS]` representations for complete images and Faster R-CNN representations for detected regions.
+- **Acoustic:** MUStARD acoustic inputs are divided into four temporal segments, mean-pooled, and interpolated to 768 dimensions.
+
+Generated files follow the cache layout described in
+[`docs/DATASETS.md`](docs/DATASETS.md) and are consumed directly by the graph
+dataset loaders.
+
 <a id="quick-start"></a>
 
 ## 🚀 Quick Start
@@ -83,13 +122,10 @@ bash scripts/train_mustard.sh data
 bash scripts/train_memotion.sh data
 ```
 
-Launchers read `configs/<dataset>.yaml`, default to CPU, and save each run in a new output directory. Checkpoints are selected on the validation split using:
-
-```text
-0.7 * sarcasm weighted F1 + 0.3 * sentiment weighted F1
-```
-
-The selected checkpoint is evaluated once on the test split.
+MUStARD and Memotion are trained independently with their corresponding
+configuration files. Launchers default to CPU and save each run in a new
+output directory. Checkpoints are selected on the validation split, and the
+selected checkpoint is evaluated once on the test split.
 
 <a id="main-results"></a>
 
