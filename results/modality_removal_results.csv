@@ -1,0 +1,7 @@
+dataset,setting,sarcasm_f1,sarcasm_accuracy,sentiment_f1,sentiment_accuracy,source_run
+MUStARD,w/o T,83.95,84.00,46.74,45.00,20261015_082617_576881_mustard_ablation_joint70_30
+MUStARD,w/o V,75.86,76.00,50.62,48.00,20261015_082617_576881_mustard_ablation_joint70_30
+MUStARD,All,85.98,86.00,48.39,47.00,20261015_074731_489865_joint70_30_both_mu_balanced_me_none
+Memotion,w/o T,71.63,77.10,48.88,55.25,20261015_112309_524297_memotion_resume_remaining_joint70_30
+Memotion,w/o V,72.58,77.86,50.40,59.26,20261015_112309_524297_memotion_resume_remaining_joint70_30
+Memotion,All,71.56,76.05,49.30,55.15,20261015_074731_489865_joint70_30_both_mu_balanced_me_none

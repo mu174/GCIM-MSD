@@ -1,0 +1,9 @@
+# Portable base only; install compatible PyTorch and DGL separately.
+name: gcim-msd
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.14
+  - pip
+  - pip:
+      - -r requirements.txt

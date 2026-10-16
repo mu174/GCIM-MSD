@@ -1,0 +1,70 @@
+{
+  "dataset": "Memotion",
+  "implementation": "isolated_gcim_msd_ablation_v1",
+  "variant": "wo_crmd",
+  "variant_definition": "Remove the CRMD output from the sarcasm decoder; its 256-dimensional slot is replaced by zeros so the decoder input size stays unchanged.",
+  "active_modalities": [
+    "text",
+    "image"
+  ],
+  "seed": 5,
+  "epochs": 30,
+  "checkpoint": "checkpoints/ablations/memotion/wo_crmd.pth",
+  "selection": {
+    "split": "validation",
+    "metric": "weighted_joint_f1",
+    "weights": {
+      "sarcasm": 0.7,
+      "sentiment": 0.3
+    },
+    "mode": "max",
+    "tie_breaker": "sarcasm_weighted_f1"
+  },
+  "loss": {
+    "lambda_sarcasm": 0.5,
+    "lambda_sentiment": 0.5,
+    "lambda_mcm": 1.0,
+    "mcm_margin": 0.5,
+    "sentiment_weighting": "none",
+    "sentiment_training_counts": null,
+    "sentiment_class_weights": null
+  },
+  "optimizer": {
+    "learning_rate": 0.0001,
+    "batch_size": 48,
+    "gradient_accumulation_steps": 2,
+    "updates_per_epoch": 51
+  },
+  "best_epoch": 26,
+  "best_validation_selection_score": 0.6130880839133034,
+  "best_validation_loss": 0.9304629239169034,
+  "best_validation_sarcasm_weighted": {
+    "precision": 0.6874668698740173,
+    "recall": 0.7576335877862596,
+    "f1-score": 0.6847613119900621,
+    "support": 1048.0
+  },
+  "best_validation_sentiment_weighted": {
+    "precision": 0.42110943092307673,
+    "recall": 0.5019083969465649,
+    "f1-score": 0.4458505517341998,
+    "support": 1048.0
+  },
+  "test_loss": 0.8618226539004933,
+  "test_sarcasm_weighted": {
+    "precision": 0.7073983447963117,
+    "recall": 0.7872137404580153,
+    "f1-score": 0.7233964527333338,
+    "support": 1048.0
+  },
+  "test_sentiment_weighted": {
+    "precision": 0.46618682910472564,
+    "recall": 0.5562977099236641,
+    "f1-score": 0.5010355328387821,
+    "support": 1048.0
+  },
+  "reported_tasks": [
+    "sarcasm",
+    "sentiment"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "dataset": "Memotion",
+  "implementation": "fixed_mcm_crmd_accumulation_joint_selection",
+  "seed": 5,
+  "epochs": 30,
+  "checkpoint": "checkpoints/memotion_best_model.pth",
+  "selection": {
+    "split": "validation",
+    "metric": "0.7 * sarcasm_weighted_f1 + 0.3 * sentiment_weighted_f1",
+    "mode": "max",
+    "sarcasm_weight": 0.7,
+    "sentiment_weight": 0.3,
+    "tie_breaker": "sarcasm_weighted_f1"
+  },
+  "loss": {
+    "lambda_sarcasm": 0.5,
+    "lambda_sentiment": 0.5,
+    "lambda_mcm": 1.0,
+    "mcm_margin": 0.5,
+    "sentiment_weighting": "none",
+    "sentiment_training_counts": null,
+    "sentiment_class_weights": null
+  },
+  "optimizer": {
+    "learning_rate": 0.0001,
+    "batch_size": 48,
+    "gradient_accumulation_steps": 2,
+    "updates_per_epoch": 51
+  },
+  "best_epoch": 18,
+  "best_validation_joint_score": 0.607981790068633,
+  "best_validation_loss": 0.9210503561930223,
+  "best_validation_sarcasm_weighted": {
+    "precision": 0.6579965627168632,
+    "recall": 0.7299618320610687,
+    "f1-score": 0.6780689676188287,
+    "support": 1048.0
+  },
+  "best_validation_sentiment_weighted": {
+    "precision": 0.42005110223985287,
+    "recall": 0.5019083969465649,
+    "f1-score": 0.44444504245150956,
+    "support": 1048.0
+  },
+  "test_loss": 0.8664229105819355,
+  "test_sarcasm_weighted": {
+    "precision": 0.6907993777995081,
+    "recall": 0.7604961832061069,
+    "f1-score": 0.7155918833072,
+    "support": 1048.0
+  },
+  "test_sentiment_weighted": {
+    "precision": 0.4571038266724587,
+    "recall": 0.5515267175572519,
+    "f1-score": 0.4930024512471303,
+    "support": 1048.0
+  }
+}

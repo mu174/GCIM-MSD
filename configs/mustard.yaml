@@ -1,0 +1,19 @@
+dataset: MUStARD
+seed: 8
+epochs: 30
+batch_size: 32
+learning_rate: 0.0002
+gradient_accumulation_steps: 2
+loss:
+  lambda_sarcasm: 0.5
+  lambda_sentiment: 0.5
+  lambda_mcm: 1.0
+  mcm_margin: 0.5
+  sentiment_weighting: balanced
+checkpoint_selection:
+  split: validation
+  metric: weighted_f1
+  sarcasm_weight: 0.7
+  sentiment_weight: 0.3
+  tie_breaker: sarcasm_weighted_f1
+test_evaluation: once_after_loading_best_checkpoint

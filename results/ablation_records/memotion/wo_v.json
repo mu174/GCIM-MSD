@@ -1,0 +1,69 @@
+{
+  "dataset": "Memotion",
+  "implementation": "isolated_gcim_msd_ablation_v1",
+  "variant": "wo_v",
+  "variant_definition": "Remove vision from the rebuilt global graph and from CRMD/MCM inputs.",
+  "active_modalities": [
+    "text"
+  ],
+  "seed": 5,
+  "epochs": 30,
+  "checkpoint": "checkpoints/ablations/memotion/wo_v.pth",
+  "selection": {
+    "split": "validation",
+    "metric": "weighted_joint_f1",
+    "weights": {
+      "sarcasm": 0.7,
+      "sentiment": 0.3
+    },
+    "mode": "max",
+    "tie_breaker": "sarcasm_weighted_f1"
+  },
+  "loss": {
+    "lambda_sarcasm": 0.5,
+    "lambda_sentiment": 0.5,
+    "lambda_mcm": 1.0,
+    "mcm_margin": 0.5,
+    "sentiment_weighting": "none",
+    "sentiment_training_counts": null,
+    "sentiment_class_weights": null
+  },
+  "optimizer": {
+    "learning_rate": 0.0001,
+    "batch_size": 48,
+    "gradient_accumulation_steps": 2,
+    "updates_per_epoch": 51
+  },
+  "best_epoch": 24,
+  "best_validation_selection_score": 0.5994948252028235,
+  "best_validation_loss": 1.2129499316215515,
+  "best_validation_sarcasm_weighted": {
+    "precision": 0.6523469502304738,
+    "recall": 0.7356870229007634,
+    "f1-score": 0.6738710058847129,
+    "support": 1048.0
+  },
+  "best_validation_sentiment_weighted": {
+    "precision": 0.41923602921108566,
+    "recall": 0.5190839694656488,
+    "f1-score": 0.42595040361174824,
+    "support": 1048.0
+  },
+  "test_loss": 1.1644775000485508,
+  "test_sarcasm_weighted": {
+    "precision": 0.7068047395722203,
+    "recall": 0.7786259541984732,
+    "f1-score": 0.7257568954465983,
+    "support": 1048.0
+  },
+  "test_sentiment_weighted": {
+    "precision": 0.47751714116875654,
+    "recall": 0.5925572519083969,
+    "f1-score": 0.5039953761665972,
+    "support": 1048.0
+  },
+  "reported_tasks": [
+    "sarcasm",
+    "sentiment"
+  ]
+}

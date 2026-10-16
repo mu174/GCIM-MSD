@@ -1,0 +1,66 @@
+{
+  "dataset": "Memotion",
+  "implementation": "isolated_gcim_msd_ablation_v1",
+  "variant": "stl_sentiment",
+  "variant_definition": "Train only with sentiment supervision; sarcasm and MCM losses are zero.",
+  "active_modalities": [
+    "text",
+    "image"
+  ],
+  "seed": 5,
+  "epochs": 30,
+  "checkpoint": "checkpoints/ablations/memotion/stl_sentiment.pth",
+  "selection": {
+    "split": "validation",
+    "metric": "sentiment_weighted_f1",
+    "weights": null,
+    "mode": "max",
+    "tie_breaker": null
+  },
+  "loss": {
+    "lambda_sarcasm": 0.0,
+    "lambda_sentiment": 1.0,
+    "lambda_mcm": 0.0,
+    "mcm_margin": 0.5,
+    "sentiment_weighting": "none",
+    "sentiment_training_counts": null,
+    "sentiment_class_weights": null
+  },
+  "optimizer": {
+    "learning_rate": 0.0001,
+    "batch_size": 48,
+    "gradient_accumulation_steps": 2,
+    "updates_per_epoch": 51
+  },
+  "best_epoch": 11,
+  "best_validation_selection_score": 0.44372441828287473,
+  "best_validation_loss": 0.9679804281754927,
+  "best_validation_sarcasm_weighted": {
+    "precision": 0.6269300112278986,
+    "recall": 0.34541984732824427,
+    "f1-score": 0.33998313509675127,
+    "support": 1048.0
+  },
+  "best_validation_sentiment_weighted": {
+    "precision": 0.4170427039186402,
+    "recall": 0.4933206106870229,
+    "f1-score": 0.44372441828287473,
+    "support": 1048.0
+  },
+  "test_loss": 0.9339665093205192,
+  "test_sarcasm_weighted": {
+    "precision": 0.6944785381169268,
+    "recall": 0.32156488549618323,
+    "f1-score": 0.3188103866087914,
+    "support": 1048.0
+  },
+  "test_sentiment_weighted": {
+    "precision": 0.4673271612857753,
+    "recall": 0.5477099236641222,
+    "f1-score": 0.5011195736025407,
+    "support": 1048.0
+  },
+  "reported_tasks": [
+    "sentiment"
+  ]
+}

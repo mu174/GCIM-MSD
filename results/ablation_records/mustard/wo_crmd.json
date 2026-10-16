@@ -1,0 +1,79 @@
+{
+  "dataset": "MUStARD",
+  "implementation": "isolated_gcim_msd_ablation_v1",
+  "variant": "wo_crmd",
+  "variant_definition": "Remove the CRMD output from the sarcasm decoder; its 256-dimensional slot is replaced by zeros so the decoder input size stays unchanged.",
+  "active_modalities": [
+    "text",
+    "image",
+    "audio"
+  ],
+  "seed": 8,
+  "epochs": 30,
+  "checkpoint": "checkpoints/ablations/mustard/wo_crmd.pth",
+  "selection": {
+    "split": "validation",
+    "metric": "weighted_joint_f1",
+    "weights": {
+      "sarcasm": 0.7,
+      "sentiment": 0.3
+    },
+    "mode": "max",
+    "tie_breaker": "sarcasm_weighted_f1"
+  },
+  "loss": {
+    "lambda_sarcasm": 0.5,
+    "lambda_sentiment": 0.5,
+    "lambda_mcm": 1.0,
+    "mcm_margin": 0.5,
+    "sentiment_weighting": "balanced",
+    "sentiment_training_counts": [
+      294.0,
+      66.0,
+      140.0
+    ],
+    "sentiment_class_weights": [
+      0.5668933987617493,
+      2.5252525806427,
+      1.1904761791229248
+    ]
+  },
+  "optimizer": {
+    "learning_rate": 0.0002,
+    "batch_size": 32,
+    "gradient_accumulation_steps": 2,
+    "updates_per_epoch": 8
+  },
+  "best_epoch": 22,
+  "best_validation_selection_score": 0.6598189454249913,
+  "best_validation_loss": 1.0733951528867085,
+  "best_validation_sarcasm_weighted": {
+    "precision": 0.7436115360643663,
+    "recall": 0.7444444444444445,
+    "f1-score": 0.7431877723139858,
+    "support": 90.0
+  },
+  "best_validation_sentiment_weighted": {
+    "precision": 0.47851418670132123,
+    "recall": 0.5,
+    "f1-score": 0.46529168268400445,
+    "support": 90.0
+  },
+  "test_loss": 0.8696792870759964,
+  "test_sarcasm_weighted": {
+    "precision": 0.82,
+    "recall": 0.82,
+    "f1-score": 0.82,
+    "support": 100.0
+  },
+  "test_sentiment_weighted": {
+    "precision": 0.5543850267379679,
+    "recall": 0.51,
+    "f1-score": 0.5100952380952382,
+    "support": 100.0
+  },
+  "reported_tasks": [
+    "sarcasm",
+    "sentiment"
+  ]
+}
