@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 ## 数据
 
-本仓库不提供原始数据、数据划分文件、缓存特征和训练权重。训练前需在本地准备数据和特征，并按照 [docs/DATASETS.md](docs/DATASETS.md) 进行检查：
+按照 [docs/DATASETS.md](docs/DATASETS.md) 准备处理后的数据划分和模态特征，然后运行检查：
 
 ```bash
 python scripts/preflight.py /数据根目录

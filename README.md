@@ -16,7 +16,7 @@ Exact recorded versions are listed in `requirements-recorded.txt`.
 
 ## Data
 
-Raw datasets, split files, cached features, and trained checkpoints are not redistributed. Training requires locally prepared splits and features. Prepare them according to [docs/DATASETS.md](docs/DATASETS.md), then check them with:
+Prepare the processed split files and modality features according to [docs/DATASETS.md](docs/DATASETS.md), then check them with:
 
 ```bash
 python scripts/preflight.py /absolute/path/to/gcim_data
@@ -46,7 +46,7 @@ bash scripts/train_ablation_suite.sh memotion /absolute/path/to/gcim_data
 
 ## Evaluation
 
-Evaluation requires a compatible checkpoint produced by local training.
+Evaluate a checkpoint produced by training with:
 
 ```bash
 bash scripts/evaluate.sh mustard /path/to/gcim_data \

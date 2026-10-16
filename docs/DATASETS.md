@@ -1,8 +1,6 @@
 # Dataset and feature layout
 
-The release does not redistribute MUStARD, Memotion, or their media. Obtain
-each dataset under its own terms, then arrange the processed split files and
-cached graph features as follows:
+Arrange the processed split files and cached graph features as follows:
 
 ```text
 DATA_ROOT/
@@ -62,6 +60,4 @@ to integer columns named `sarcasm` and `overall_sentiment`.
 ## Cached feature contract
 
 Both datasets load NumPy node-feature arrays and dependency-graph JSON files.
-The training code does not download encoders or extract features on demand.
-Feature-extraction scripts are not included. Supply the prepared feature files
-using the layout above.
+Place the prepared feature files in the layout above before training.
