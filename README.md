@@ -69,4 +69,4 @@ Full configurations and result records are available in `configs/`, `results/`, 
 
 ## Citation and license
 
-Author information is provided in `CITATION.cff`. For repository questions, contact `teganjay0715@gmail.com`. This code is released under the Apache License 2.0. Dataset and third-party licenses apply separately.
+Author information is provided in `CITATION.cff`. Repository maintainer: Jie Tang (`teganjay0715@gmail.com`). This code is released under the Apache License 2.0. Dataset and third-party licenses apply separately.
