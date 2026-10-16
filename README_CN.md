@@ -4,9 +4,11 @@
 
 ![GCIM-MSD 模型结构](assets/figure2.png)
 
+MUStARD 使用文本、视觉和音频模态；Memotion 使用文本和视觉模态。
+
 ## 环境
 
-记录环境为 Python 3.10.14、PyTorch 1.12.1+cu113、DGL 0.9.1.post1 和 Transformers 4.30.2。先安装与平台匹配的 PyTorch 和 DGL，再运行：
+核心环境为 Python 3.10.14、PyTorch 1.12.1+cu113、DGL 0.9.1.post1 和 Transformers 4.30.2。先安装与平台匹配的 PyTorch 和 DGL，再运行：
 
 ```bash
 pip install -r requirements.txt
@@ -17,36 +19,25 @@ pip install -r requirements.txt
 按照 [docs/DATASETS.md](docs/DATASETS.md) 准备处理后的数据划分和模态特征，然后运行检查：
 
 ```bash
-python scripts/preflight.py /数据根目录
+python scripts/preflight.py /处理后数据目录
 ```
 
 ## 训练
 
 ```bash
-bash scripts/train_mustard.sh /数据根目录
-bash scripts/train_memotion.sh /数据根目录
+bash scripts/train_mustard.sh /处理后数据目录
+bash scripts/train_memotion.sh /处理后数据目录
 ```
 
-启动器读取 `configs/<dataset>.yaml`，默认使用 CPU，并在新的输出目录保存源码快照和运行设置。checkpoint 按验证集联合指标选择：
+启动器读取 `configs/<dataset>.yaml`，默认使用 CPU，并为每次运行创建新的输出目录。checkpoint 按验证集联合指标选择：
 
 ```text
 0.7 × sarcasm weighted F1 + 0.3 × sentiment weighted F1
 ```
 
-消融和模态移除实验：
+## GCIM-MSD 结果
 
-```bash
-bash scripts/train_ablation_suite.sh mustard /数据根目录
-bash scripts/train_ablation_suite.sh memotion /数据根目录
-```
-
-## 评估
-
-评估需要使用本地训练得到的兼容 checkpoint。
-
-## 表三：主要结果
-
-以下为固定测试集上的 support-weighted 指标。
+以下为测试集上的 support-weighted 指标。
 
 | Dataset | Sarcasm P | Sarcasm R | Sarcasm F1 | Sentiment R | Sentiment F1 |
 |---|---:|---:|---:|---:|---:|
