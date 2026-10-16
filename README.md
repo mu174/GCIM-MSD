@@ -1,12 +1,53 @@
-# GCIM-MSD
+<div align="center">
 
-Code for **Global Context-Guided Incongruity Modeling for Multimodal Sarcasm Detection**. GCIM-MSD performs sarcasm detection with auxiliary sentiment supervision on MUStARD and Memotion.
+<h1>GCIM-MSD</h1>
 
-![GCIM-MSD architecture](assets/figure2.png)
+<p><strong>Global Context-Guided Incongruity Modeling for Multimodal Sarcasm Detection</strong></p>
 
-MUStARD uses text, visual, and acoustic modalities; Memotion uses text and visual modalities.
+<p>
+  <img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white" alt="Python 3.10">
+  <img src="https://img.shields.io/badge/PyTorch-1.12.1-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch 1.12.1">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="Apache License 2.0"></a>
+</p>
 
-## Requirements
+<p>
+  <a href="#overview">Overview</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="#setup">Setup</a> ·
+  <a href="#data">Data</a> ·
+  <a href="#quick-start">Quick Start</a> ·
+  <a href="#main-results">Results</a>
+</p>
+
+</div>
+
+---
+
+## Overview
+
+GCIM-MSD performs multimodal sarcasm detection with auxiliary sentiment supervision on MUStARD and Memotion.
+
+| | Description |
+|---|---|
+| **Problem** | Model cross-modal incongruity using a shared global contextual reference. |
+| **Task** | Sarcasm detection with auxiliary sentiment analysis. |
+| **Modalities** | MUStARD: text, visual, and acoustic; Memotion: text and visual. |
+
+The method contains three main components:
+
+- **Global Contextual Reference (GCR):** aggregates multimodal information into a shared contextual reference.
+- **Context-Referenced Modality Deviation (CRMD):** models the interaction between each modality and the GCR.
+- **Modality-level Conflict Modeling (MCM):** captures conflict among modality representations.
+
+## Architecture
+
+<p align="center">
+  <img src="assets/figure2.png" width="95%" alt="GCIM-MSD architecture">
+</p>
+
+<p align="center"><em>Overview of the GCIM-MSD framework.</em></p>
+
+## Setup
 
 Core environment: Python 3.10.14, PyTorch 1.12.1+cu113, DGL 0.9.1.post1, and Transformers 4.30.2. Install platform-compatible PyTorch and DGL builds first, then run:
 
@@ -24,7 +65,7 @@ The fixed split CSVs are included under `data/`. Configure the raw media and fea
 python scripts/preflight.py data
 ```
 
-## Training
+## Quick Start
 
 ```bash
 bash scripts/train_mustard.sh data
@@ -39,7 +80,7 @@ Launchers read `configs/<dataset>.yaml`, default to CPU, and save each run in a 
 
 The selected checkpoint is evaluated once on the test split.
 
-## GCIM-MSD Results
+## Main Results
 
 All values are support-weighted percentages on the test sets.
 
