@@ -4,6 +4,8 @@
 
 <p><strong>Global Context-Guided Incongruity Modeling for Multimodal Sarcasm Detection</strong></p>
 
+<p>This repository provides the implementation of the paper.</p>
+
 <p>
   <img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white" alt="Python 3.10">
   <img src="https://img.shields.io/badge/PyTorch-1.12.1-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch 1.12.1">
@@ -12,6 +14,7 @@
 
 <p>
   <a href="#overview">Overview</a> ·
+  <a href="#key-features">Key Features</a> ·
   <a href="#architecture">Architecture</a> ·
   <a href="#setup">Setup</a> ·
   <a href="#data">Data</a> ·
@@ -25,19 +28,15 @@
 
 ## Overview
 
-GCIM-MSD performs multimodal sarcasm detection with auxiliary sentiment supervision on MUStARD and Memotion.
+- **Problem:** Existing methods have difficulty fully modeling cross-modal incongruity in multimodal sarcasm.
+- **Task:** Multimodal sarcasm detection with auxiliary sentiment analysis on MUStARD and Memotion.
+- **Core Mechanism:** GCR, CRMD, and MCM.
 
-| | Description |
-|---|---|
-| **Problem** | Model cross-modal incongruity using a shared global contextual reference. |
-| **Task** | Sarcasm detection with auxiliary sentiment analysis. |
-| **Modalities** | MUStARD: text, visual, and acoustic; Memotion: text and visual. |
+## Key Features
 
-The method contains three main components:
-
-- **Global Contextual Reference (GCR):** aggregates multimodal information into a shared contextual reference.
-- **Context-Referenced Modality Deviation (CRMD):** models the interaction between each modality and the GCR.
-- **Modality-level Conflict Modeling (MCM):** captures conflict among modality representations.
+- Global Contextual Reference
+- Context-Referenced Modality Deviation
+- Modality-level Conflict Modeling
 
 ## Architecture
 
