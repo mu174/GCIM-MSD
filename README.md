@@ -26,19 +26,25 @@
 
 ---
 
-## Overview
+<a id="overview"></a>
+
+## 🔎 Overview
 
 - **Problem:** Existing methods have difficulty fully modeling cross-modal incongruity in multimodal sarcasm.
 - **Task:** Multimodal sarcasm detection with auxiliary sentiment analysis on MUStARD and Memotion.
 - **Core Mechanism:** GCR, CRMD, and MCM.
 
-## Key Features
+<a id="key-features"></a>
+
+## ✨ Key Features
 
 - Global Contextual Reference
 - Context-Referenced Modality Deviation
 - Modality-level Conflict Modeling
 
-## Architecture
+<a id="architecture"></a>
+
+## 🧩 Architecture
 
 <p align="center">
   <img src="assets/figure2.png" width="95%" alt="GCIM-MSD architecture">
@@ -46,7 +52,9 @@
 
 <p align="center"><em>Overview of the GCIM-MSD framework.</em></p>
 
-## Setup
+<a id="setup"></a>
+
+## ⚙️ Setup
 
 Core environment: Python 3.10.14, PyTorch 1.12.1+cu113, DGL 0.9.1.post1, and Transformers 4.30.2. Install platform-compatible PyTorch and DGL builds first, then run:
 
@@ -56,7 +64,9 @@ pip install -r requirements.txt
 
 Package versions are listed in `requirements-recorded.txt`.
 
-## Data
+<a id="data"></a>
+
+## 📁 Data
 
 The fixed split CSVs are included under `data/`. Configure the raw media and feature models in `configs/features.yaml`, then create the modality caches as described in [docs/DATASETS.md](docs/DATASETS.md). Check the prepared layout with:
 
@@ -64,7 +74,9 @@ The fixed split CSVs are included under `data/`. Configure the raw media and fea
 python scripts/preflight.py data
 ```
 
-## Quick Start
+<a id="quick-start"></a>
+
+## 🚀 Quick Start
 
 ```bash
 bash scripts/train_mustard.sh data
@@ -79,7 +91,9 @@ Launchers read `configs/<dataset>.yaml`, default to CPU, and save each run in a 
 
 The selected checkpoint is evaluated once on the test split.
 
-## Main Results
+<a id="main-results"></a>
+
+## 📊 Main Results
 
 All values are support-weighted percentages on the test sets.
 
@@ -90,6 +104,6 @@ All values are support-weighted percentages on the test sets.
 
 Configurations and experimental settings are available in `configs/` and [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
-## Contact and license
+## 📬 Contact and License
 
 Repository maintenance: `teganjay0715@gmail.com`. This code is released under the Apache License 2.0. Dataset and third-party licenses apply separately.
