@@ -1,8 +1,4 @@
-"""Portable data paths for the public GCIM-MSD release.
-
-Set ``GCIM_MSD_DATA_ROOT`` to the repository's ``data`` directory or to a
-compatible external directory. No machine-specific path is stored here.
-"""
+"""GCIM-MSD data paths and training defaults."""
 
 import os
 from pathlib import Path
@@ -15,8 +11,7 @@ DATA_ROOT = Path(
     )
 ).expanduser().resolve()
 
-# The archived dataset implementation concatenates root_dir and relative
-# paths, so keep one trailing path separator for compatibility.
+# The dataset loader concatenates root_dir and relative paths.
 root_dir = f"{DATA_ROOT}{os.sep}"
 
 ######## Memotion ########
@@ -34,7 +29,7 @@ mu_image_vec_dir = "mustard/features/image/"
 mu_text_vec_dir = "mustard/features/text/"
 mu_audio_vec_dir = "mustard/features/audio/"
 
-######## Reproduced main-run defaults ########
+######## Training defaults ########
 batch_size = 32
 epochs = 30
 lr = 2e-4

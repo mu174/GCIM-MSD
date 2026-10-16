@@ -35,7 +35,7 @@ def parse_args():
         "--mcm-margin",
         type=float,
         required=True,
-        help="MCM discrepancy margin delta; no value was recorded in the old run",
+        help="MCM discrepancy margin delta",
     )
     parser.add_argument(
         "--sentiment-weighting",

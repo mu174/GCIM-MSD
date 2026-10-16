@@ -1,4 +1,4 @@
-# Exact core package versions observed in the archived main-result environment.
+# Core package versions used for the main experiments.
 torch==1.12.1+cu113
 torchvision==0.13.1+cu113
 dgl-cu113==0.9.1.post1

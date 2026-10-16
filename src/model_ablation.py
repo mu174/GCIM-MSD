@@ -1,9 +1,4 @@
-"""Isolated GCIM-MSD models for ablation and modality experiments.
-
-This module intentionally does not modify or monkey-patch ``model_mu_fixed``
-or ``model_me_fixed``.  Every experiment is trained from scratch with an
-explicit variant recorded by the training entry point.
-"""
+"""GCIM-MSD models for ablation and modality experiments."""
 
 from __future__ import annotations
 

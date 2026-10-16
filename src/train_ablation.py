@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Train one isolated GCIM-MSD ablation and archive structured metrics."""
+"""Train one GCIM-MSD ablation and save structured metrics."""
 
 from __future__ import annotations
 
