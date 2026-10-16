@@ -20,7 +20,8 @@
   <a href="#repository-structure">Repository</a> ·
   <a href="#data">Data</a> ·
   <a href="#quick-start">Quick Start</a> ·
-  <a href="#main-results">Results</a>
+  <a href="#main-results">Results</a> ·
+  <a href="#documentation">Documentation</a>
 </p>
 
 </div>
@@ -127,6 +128,22 @@ configuration files. Launchers default to CPU and save each run in a new
 output directory. Checkpoints are selected on the validation split, and the
 selected checkpoint is evaluated once on the test split.
 
+<a id="reproducibility"></a>
+
+## 🔁 Reproducibility
+
+The repository keeps the main experimental inputs and execution settings in
+version-controlled files:
+
+- fixed train, validation, and test split CSVs for both datasets;
+- dataset-specific hyperparameters in `configs/mustard.yaml` and `configs/memotion.yaml`;
+- feature extraction settings in `configs/features.yaml`;
+- validation-based checkpoint selection followed by one test evaluation;
+- isolated run directories containing the resolved configuration, logs, and source snapshot.
+
+These records keep the two dataset pipelines separate while using the same
+reporting and checkpoint-selection procedure.
+
 <a id="main-results"></a>
 
 ## 📊 Main Results
@@ -139,6 +156,17 @@ All values are support-weighted percentages on the test sets.
 | Memotion | 69.08 | 76.05 | 71.56 | 55.15 | 49.30 |
 
 Configurations and experimental settings are available in `configs/` and [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
+
+<a id="documentation"></a>
+
+## 📚 Documentation
+
+| Document | Contents |
+|---|---|
+| [`DATASETS.md`](docs/DATASETS.md) | Split definitions, label mappings, cache layout, and feature preparation. |
+| [`MODEL_COMPONENTS.md`](docs/MODEL_COMPONENTS.md) | Model inputs, projection dimensions, and core component definitions. |
+| [`REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) | Training settings, checkpoint policy, evaluation protocol, and run artifacts. |
+| [`ABLATIONS.md`](docs/ABLATIONS.md) | Implemented ablation and modality-removal variants. |
 
 ## 📬 Contact and License
 
